@@ -51,12 +51,12 @@ ws = create_connection(args.url,sslopt={"cert_reqs": ssl.CERT_NONE},header={},ht
 try:
     # Setting up web harness/proxy server
     server = ThreadedHTTPServer(('', int(args.port)), WSWebServer)
-    print 'WebSocke Harness: Successful bind on port', args.port
+    print 'WebSocket Harness: Successful bind on port', args.port
     
     # Wait forever for incoming http requests
     server.serve_forever()
 
 except KeyboardInterrupt:
-    print 'WebSocke Harness: Exit command recieved. Shutting down...'
+    print 'WebSocket Harness: Exit command recieved. Shutting down...'
     server.socket.close()
     ws.close()
